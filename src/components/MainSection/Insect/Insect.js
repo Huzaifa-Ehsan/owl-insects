@@ -14,9 +14,10 @@ const Insect = ({ type, onDrag, onEat, position }) => {
 
   useEffect(() => {
     const handleMouseMove = (e) => {
-      if (isDragging) {
-        const newX = e.clientX - insectRef.current.clientWidth / 2;
-        const newY = e.clientY - insectRef.current.clientHeight / 2;
+      if (isDragging && insectRef.current) {
+        const insectRect = insectRef.current.getBoundingClientRect();
+        const newX = e.clientX - insectRect.width / 2 + window.scrollX;
+        const newY = e.clientY - insectRect.height / 2 + window.scrollY;
 
         onDrag({ x: newX, y: newY });
       }
@@ -36,7 +37,7 @@ const Insect = ({ type, onDrag, onEat, position }) => {
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("mouseup", handleMouseUp);
     };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isDragging, onDrag]);
 
   const handleMouseDown = (e) => {
@@ -54,8 +55,8 @@ const Insect = ({ type, onDrag, onEat, position }) => {
     };
 
     const owlMouthPosition = {
-      x: owlRect.left + owlRect.width / 2,
-      y: owlRect.top + owlRect.height / 2,
+      x: owlRect.left + owlRect.width * 0.4,
+      y: owlRect.top + owlRect.height * 0.6,
     };
 
     const distance = Math.sqrt(
@@ -63,7 +64,7 @@ const Insect = ({ type, onDrag, onEat, position }) => {
         Math.pow(insectPosition.y - owlMouthPosition.y, 2)
     );
 
-    if (distance < 80) {
+    if (distance < 50) {
       handleEat();
     }
   };

@@ -49,7 +49,7 @@ const MainSection = () => {
   const handleDrag = (insectId, position) => {
     const windowWidth = window.innerWidth;
     const windowHeight = window.innerHeight;
-    const insectSize = 100; 
+    const insectSize = 100;
 
     const clampedX = Math.max(
       0,
