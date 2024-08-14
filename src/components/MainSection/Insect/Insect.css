@@ -1,0 +1,18 @@
+.insect {
+    cursor: grab;
+    transition: transform 0.2s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+.insect.eaten {
+    transform: scale(0);
+    opacity: 0;
+}
+
+.insect:active {
+    cursor: grabbing;
+}
+
+.insect-picture {
+    width: 100px;
+    height: 100px;
+}

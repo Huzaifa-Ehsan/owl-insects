@@ -1,0 +1,34 @@
+.owl {
+    position: absolute;
+    bottom: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 200px;
+    background: url('/public/assets/owl-body.svg') no-repeat center;
+    background-size: contain;
+}
+
+.eye-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.eye {
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    
+}
+
+.left-eye {
+    left: 25%;
+    top: 50%;
+}
+
+.right-eye {
+    right: 20%;
+    top: 50%;
+}

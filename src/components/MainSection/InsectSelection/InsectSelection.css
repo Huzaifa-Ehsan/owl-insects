@@ -1,0 +1,22 @@
+.insect-selection {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.insect-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    background-color: #eee;
+}
+
+
+.insect-image {
+    max-width: 50px;
+}
