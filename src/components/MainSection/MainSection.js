@@ -10,6 +10,7 @@ const MainSection = () => {
 
   const handleSelectInsect = (type) => {
     const insectSize = 100;
+    // returns the size of an element and its position relative to the viewport
     const selectionRect = document
       .querySelector(".select-insect")
       .getBoundingClientRect();
@@ -21,6 +22,7 @@ const MainSection = () => {
     let newX, newY;
     let isOverlapping;
 
+    // if no overlap continues loop
     do {
       newX = Math.random() * (viewportWidth - insectSize);
       newY = Math.random() * (viewportHeight - (insectSize + 50));
@@ -57,7 +59,7 @@ const MainSection = () => {
     );
     const clampedY = Math.max(
       0,
-      Math.min(position.y, windowHeight - (insectSize + 50))
+      Math.min(position.y, windowHeight - (insectSize + 10))
     );
 
     setInsects((prevInsects) =>
@@ -67,7 +69,7 @@ const MainSection = () => {
           : insect
       )
     );
-
+    // x and y positions of the insect relative to the window
     setEyePosition({
       x: (clampedX / windowWidth) * 100 - 50,
       y: (clampedY / windowHeight) * 100 - 50,
@@ -94,16 +96,7 @@ const MainSection = () => {
           position={{ x: insect.x, y: insect.y }}
         />
       ))}
-      <div className="button-select">
-        <button className="button">
-          <img src="/assets/left-hand.svg" alt="left" className="button-img" />
-          <span>Back</span>
-        </button>
-        <button className="button">
-          <img src="/assets/right-hand.svg" alt="left" className="button-img" />
-          <span>Right</span>
-        </button>
-      </div>
+     
     </div>
   );
 };
